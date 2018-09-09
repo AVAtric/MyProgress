@@ -8,10 +8,10 @@
 
 #ifdef _WIN32
     #include <windows.h>
-	#define wait(X) (Sleep(X))
+	#define wait_time(X) (Sleep(X))
 #else
     #include <unistd.h>
-    #define wait(X) usleep(X*1000)
+    #define wait_time(X) usleep(X*1000)
 #endif
 
 #define PROCESS_COUNT 4
@@ -29,7 +29,7 @@ int main(void) {
 #ifdef DEBUG
         wait_key();
 #else
-        wait(50);
+        wait_time(50);
 #endif
 
         float sum = 0;
